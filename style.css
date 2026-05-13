@@ -1,0 +1,59 @@
+:root{
+    --feher: #F2F0EF;
+    --szurke: #BBBDBC;
+    --kek: #245f73;
+    --barna: #733E24;
+}
+
+body{
+    background-color: var(--feher);
+}
+
+body {
+    margin: 0;
+    font-family: system-ui, sans-serif;
+    color: var(--kek);
+    padding: 1rem;
+    font-size: 0.95rem;
+}
+
+.container {
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+
+
+@media (min-width: 576px) {
+    body {
+        font-size: 1rem;
+    }
+
+    .container {
+        max-width: 540px;
+        padding: 0 1.25rem;
+    }
+}
+
+@media (min-width: 768px) {
+    body {
+        font-size: 1.05rem;
+    }
+
+    .container {
+        max-width: 720px;
+        padding: 0 1.5rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    body {
+        font-size: 1.1rem;
+    }
+
+    .container {
+        max-width: 960px;
+        padding: 0 2rem;
+    }
+}

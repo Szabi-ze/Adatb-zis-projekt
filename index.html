@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+
+    <header>
+        <nav>
+            <div class="logo">SQL Notes</div>
+            <ul>
+                <li><a href="#constraints">Constraints</a></li>
+                <li><a href="#queries">Queries</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+
+
+    <section>
+      <h2>1. Táblákban alkalmazható korlátozások (constraints)</h2>
+
+      <h3>PRIMARY KEY</h3>
+      <p>Azonosítja a tábla egyedi sorait; nem lehet NULL és egyedi értékeket biztosít.</p>
+      <pre><code class="sql">CREATE TABLE Pelda (id INT PRIMARY KEY, nev VARCHAR(100));
+    </code></pre>
+
+      <h3>FOREIGN KEY</h3>
+      <p>Másik tábla rekordjára hivatkozik, biztosítva az adatintegritást (kapcsolat).</p> 
+      <pre><code>CREATE TABLE Rendeles (id INT PRIMARY KEY, vasarlo_id INT, FOREIGN KEY (vasarlo_id) REFERENCES Vasarlo(id));</code></pre>
+
+      <h3>UNIQUE</h3>
+      <p>Megköveteli, hogy az oszlopban minden érték egyedi legyen (de NULL lehet, ha nincs NOT NULL).</p>
+      <pre><code class="sql">CREATE TABLE Felhasznalo (id INT PRIMARY KEY, email VARCHAR(255) UNIQUE);</code></pre>
+
+      <h3>NOT NULL</h3> 
+      <p>Megakadályozza, hogy az oszlop értéke NULL legyen — kötelező mező.</p>
+      <pre><code class="sql">CREATE TABLE Termek (id INT PRIMARY KEY, nev VARCHAR(100) NOT NULL);</code></pre>
+
+      <h3>DEFAULT</h3>
+      <p>Alapértelmezett értéket ad meg, ha az INSERT során nem adnak meg értéket.</p>
+      <pre><code class="sql">CREATE TABLE Allapot (id INT PRIMARY KEY, aktiv BOOLEAN DEFAULT TRUE);</code></pre>
+
+      <h3>CHECK</h3>
+      <p>Feltételt határoz meg az oszlop értékeire (egyszerű validáció az adatbázis szintjén).</p>
+      <pre><code class="sql">CREATE TABLE Munkavallalo (id INT PRIMARY KEY, eletkor INT CHECK (eletkor >= 18));</code></pre>
+    </section>
+
+    <section>
+      <h2>2. A lekérdezések típusai</h2>
+
+      <h3>Adatbevitel (INSERT)</h3>
+      <p>Új sorokat ad a táblához. Lehet oszlopsorárnyalás vagy teljes sor.</p>
+      <pre><code class="sql">INSERT INTO Vasarlo (id, nev, email) VALUES (1, 'Kovács Anna', 'anna@example.com');</code></pre>
+
+      <h3>Adatlekérdezés (SELECT)</h3>
+      <p>Adatok lekérése a táblákból; egyszerű vagy összetett feltételekkel, csatlakozásokkal.</p>
+      <pre><code class="sql">SELECT v.nev, r.id AS rendeles_id FROM Vasarlo v JOIN Rendeles r ON v.id = r.vasarlo_id WHERE v.email LIKE '%@example.com';</code></pre>
+
+      <h3>Adatmódosítás (UPDATE)</h3>
+      <p>Meglévő sorok értékeinek módosítása feltételek alapján.</p>
+      <pre><code class="sql">UPDATE Termek SET ar = ar * 1.1 WHERE kategoria = 'elektronika';</code></pre>
+
+      <h3>Adattörlés (DELETE)</h3>
+      <p>Sorok eltávolítása a táblából; óvatosan használandó, gyakran tranzakcióban.</p>
+      <pre><code class="sql">DELETE FROM Rendeles WHERE datum &lt; '2020-01-01';</code></pre>
+
+      <h4>Gyors példa adatsor-generálás (bemutató célra)</h4>
+      <p>Példák rövid adatszettekre, amikkel gyakorolhatók a fenti lekérdezések.</p>
+      <pre><code class="sql">INSERT INTO Vasarlo (id, nev, email) VALUES
+    (1, 'Kovács Anna', 'anna@example.com'),
+    (2, 'Nagy Péter', 'peter@example.org');
+
+    INSERT INTO Termek (id, nev, ar) VALUES
+    (1, 'Laptop', 250000),
+    (2, 'Egér', 5000);</code></pre>
+    
+        
+
+
+    </section>
+</body>
+</html>
