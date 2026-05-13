@@ -1,4 +1,4 @@
-:root{
+html{
     --feher: #F2F0EF;
     --szurke: #BBBDBC;
     --kek: #245f73;
@@ -137,9 +137,23 @@ td, th{
     margin: 0 auto;
 }
 
+.kep{
+    text-align: center;
+    margin: 1rem 0;
+}
 
 
-/* VALASZTO VONALÉ ADIOPAGUWDJRAWK */
+a{
+    color: blue;
+    font-weight: bold;
+    text-decoration: none;
+}
+a:hover{
+    color: pink;
+}
+
+
+/* VALASZTO VONALÉW */
 
 
 
