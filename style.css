@@ -5,16 +5,20 @@
     --barna: #733E24;
 }
 
-body{
-    background-color: var(--feher);
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
+    background-color: var(--feher);
     margin: 0;
     font-family: system-ui, sans-serif;
     color: var(--kek);
     padding: 1rem;
     font-size: 0.95rem;
+    transition: background-color ease 1s;
 }
 
 .container {
@@ -23,13 +27,7 @@ body {
     padding: 0 1rem;
 }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-.navbar {
+.navigacio {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -41,17 +39,17 @@ body {
   z-index: 100;
 }
 
-.nav-title {
+.felirat {
   font-size: 15px;
   font-weight: bold;
 }
 
-.nav-links {
+.linkek {
   display: flex;
   gap: 8px;
 }
 
-.nav-links a {
+.linkek a {
   padding: 6px 14px;
   border-radius: 6px;
   font-size: 14px;
@@ -59,11 +57,10 @@ body {
   text-decoration: none;
 }
 
-.nav-links a:hover {
+.linkek a:hover {
   background-color: #f0f0f0;
   color: #000000;
 }
-
 
 table {
     width: 100%;
@@ -72,28 +69,47 @@ table {
     text-align: end;
 }
 
-
 tr {
     display: flex;
     flex-wrap: wrap;
 }
-
 
 td, th {
     flex: 1 1 auto;
     padding: 0.5rem;
 }
 
-
-body{
-    transition: background-color ease 1s;
+pre {
+    margin: 1rem 0;
+    padding: 0.8rem;
+    background-color: rgba(0, 0, 0, 0.05);
+    border-radius: 4px;
+    overflow-x: auto;
 }
 
+.kartya {
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    flex: 0 0 280px;
+}
 
+.kartya-tarto {
+    display: flex;
+    gap: 1.5rem;
+    margin: 1.5rem 0;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+}
 
-pre{
-    margin-bottom: 15px;
-    }
+.kartya h3 {
+    margin-top: 0;
+    margin-bottom: 0.8rem;
+    color: var(--kek);
+}
 
 @media (max-width: 576px) {
     body {
@@ -101,13 +117,30 @@ pre{
         color: var(--feher);
         font-size: 1rem;
     }
-    .nav-title{
+
+    .felirat {
         color: var(--kek);
     }
 
     .container {
         max-width: 540px;
         padding: 0 1.25rem;
+    }
+
+    .kartya-tarto {
+        flex-wrap: wrap;
+        overflow-x: hidden;
+    }
+
+    .kartya {
+        flex: 1 1 100%;
+        background-color: rgba(255, 255, 255, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        color: var(--feher);
+    }
+
+    .kartya h3 {
+        color: var(--feher);
     }
 
     tr {
@@ -122,7 +155,6 @@ pre{
         padding: 0.6rem;
         box-sizing: border-box;
     }
-
 }
 
 @media (min-width: 577px) and (max-width: 1023px) {
@@ -136,6 +168,10 @@ pre{
         max-width: 720px;
         padding: 0 1.5rem;
     }
+
+    .kartya-tarto {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
 
 @media (min-width: 1024px) {
@@ -148,5 +184,9 @@ pre{
     .container {
         max-width: 960px;
         padding: 0 2rem;
+    }
+
+    .kartya-tarto {
+        grid-template-columns: repeat(3, 1fr);
     }
 }
