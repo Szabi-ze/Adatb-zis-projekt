@@ -35,8 +35,6 @@ body {
   height: 56px;
   background-color: #ffffff;
   border-bottom: 1px solid #dddddd;
-  top: 0;
-  z-index: 100;
 }
 
 .felirat {
