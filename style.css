@@ -64,16 +64,45 @@ body {
   color: #000000;
 }
 
-table{
+
+table {
     width: 100%;
     border-collapse: collapse;
     margin-top: 1rem;
     text-align: end;
 }
 
-@media (min-width: 576px) {
+
+tr {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+
+td, th {
+    flex: 1 1 auto;
+    padding: 0.5rem;
+}
+
+
+body{
+    transition: background-color ease 1s;
+}
+
+
+
+pre{
+    margin-bottom: 15px;
+    }
+
+@media (max-width: 576px) {
     body {
+        background-color: var(--kek);
+        color: var(--feher);
         font-size: 1rem;
+    }
+    .nav-title{
+        color: var(--kek);
     }
 
     .container {
@@ -81,17 +110,26 @@ table{
         padding: 0 1.25rem;
     }
 
-    table{
-        
+    tr {
+        flex-direction: column;
+        border-bottom: 2px solid white;
+        margin-bottom: 1rem;
+    }
+
+    td, th {
+        width: 100%;
+        display: flex;
+        padding: 0.6rem;
+        box-sizing: border-box;
     }
 
 }
 
-@media (min-width: 768px) {
+@media (min-width: 577px) and (max-width: 1023px) {
     body {
         font-size: 1.05rem;
-        background-color: var(--kek);
-        color: var(--feher);
+        background-color: var(--szurke);
+        color: var(--kek);
     }
 
     .container {
@@ -102,12 +140,12 @@ table{
 
 @media (min-width: 1024px) {
     body {
-        background-color: var(--szurke);
+        background-color: var(--feher);
+        color: var(--kek);
         font-size: 1.1rem;
     }
 
     .container {
-        background-color: var(--feher);
         max-width: 960px;
         padding: 0 2rem;
     }
