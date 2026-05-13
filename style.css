@@ -87,6 +87,13 @@ pre {
     overflow-x: auto;
 }
 
+img {
+    max-width: 70%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
 .kartya {
     background-color: white;
     border: 1px solid #ddd;
@@ -101,8 +108,8 @@ pre {
     display: flex;
     gap: 1.5rem;
     margin: 1.5rem 0;
-    flex-wrap: nowrap;
-    overflow-x: auto;
+    flex-wrap: wrap;
+
 }
 
 .kartya h3 {
@@ -110,6 +117,31 @@ pre {
     margin-bottom: 0.8rem;
     color: var(--kek);
 }
+
+
+img {
+    flex: 0 0 auto;
+    display: flex;
+    width: 650px;
+    height: 250px;
+    border-radius: 4px;
+}
+
+
+td, th{
+    text-align: left;
+}
+
+.cent{
+    text-align: center;
+    margin: 0 auto;
+}
+
+
+
+/* VALASZTO VONALÉ ADIOPAGUWDJRAWK */
+
+
 
 @media (max-width: 576px) {
     body {
@@ -143,6 +175,12 @@ pre {
         color: var(--feher);
     }
 
+    pre {
+        font-size: 0.75rem;
+        white-space: pre-wrap;
+        word-wrap: break-word;
+    }
+
     tr {
         flex-direction: column;
         border-bottom: 2px solid white;
@@ -170,7 +208,11 @@ pre {
     }
 
     .kartya-tarto {
-        grid-template-columns: repeat(2, 1fr);
+        flex-wrap: wrap;
+    }
+
+    .kartya {
+        flex: 1 1 calc(50% - 0.75rem);
     }
 }
 
@@ -184,9 +226,5 @@ pre {
     .container {
         max-width: 960px;
         padding: 0 2rem;
-    }
-
-    .kartya-tarto {
-        grid-template-columns: repeat(3, 1fr);
     }
 }
